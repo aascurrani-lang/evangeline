@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carta de Amor</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Georgia', serif;
+}
+
+body{
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* CONTENEDOR */
+.container{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* SOBRE BLANCO */
+.envelope{
+    width:320px;
+    height:220px;
+    background:#fff;
+    border-radius:8px;
+    position:absolute;
+    cursor:pointer;
+    box-shadow:0 20px 40px rgba(0,0,0,.6);
+    transition:opacity .8s, transform .8s;
+    z-index:2;
+}
+
+/* TAPA */
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#f0f0f0;
+    clip-path: polygon(0 0, 50% 55%, 100% 0);
+}
+
+/* CORAZÓN ROJO */
+.heart{
+    position:absolute;
+    width:42px;
+    height:42px;
+    background:#d10000;
+    top:90px;
+    left:139px;
+    transform:rotate(45deg);
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:42px;
+    height:42px;
+    background:#d10000;
+    border-radius:50%;
+}
+
+.heart::before{ top:-21px; left:0; }
+.heart::after{ left:-21px; top:0; }
+
+.envelope span{
+    position:absolute;
+    bottom:15px;
+    width:100%;
+    text-align:center;
+    color:#555;
+    font-size:15px;
+}
+
+/* HOJA GRANDE */
+.letter{
+    width:620px;
+    height:820px;
+    background:url("imag/hoja.png") center/cover no-repeat;
+    padding:80px 70px;
+    position:absolute;
+    opacity:0;
+    transform:scale(.8);
+    transition:opacity 1.2s ease, transform 1.2s ease;
+    box-shadow:0 25px 60px rgba(0,0,0,.7);
+    z-index:1;
+}
+
+/* TEXTO */
+.letter p{
+    font-size:14px;
+    line-height:1.9;
+    color:#444;
+    margin-bottom:22px;
+}
+
+.signature{
+    margin-top:40px;
+    text-align:right;
+    font-style:italic;
+    color:#666;
+}
+
+/* ESTADO ABIERTO */
+.open .envelope{
+    opacity:0;
+    transform:scale(.7);
+    pointer-events:none;
+}
+
+.open .letter{
+    opacity:1;
+    transform:scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container openable" onclick="openLetter()">
+    <div class="envelope">
+        <div class="flap"></div>
+        <div class="heart"></div>
+        <span>Haz clic para abrir ❤️</span>
+    </div>
+
+    <div class="letter">
+        <p>
+            Hola mi niña , se que no soy el mejor tipo ni el hombre perfecto , pero sabes una cosa yo si soy el chico que dará todo por ti en todo momento , en las buenas siempre estaré para ti y en las malas aun mas todavía porque cuando mas me necesitas siempre estaré apoyándote , seré el chico que a pesar de todo , a pesar de la distancia y las dificultades que se pueda dar yo siempre te voy a querer y amar demasiado , porque el hombre que ama a su chica hace locuras y solo tiene ojos para ella, y ese soy yo . Desde que llegaste a mi vida, todo se volvió más bonito y más sincero sabes, cambie por ti porque enserio quiero que seas tú.
+        </p>
+        <p>
+            No voy a decir que siempre será fácil lo se , habrá momentos en los que tengamos que aprender a escucharnos mejor. Pero incluso en esos días, quiero elegirte, quedarme y crecer contigo. Para mí, eso también es amar. Gracias por tu paciencia, por tu cariño y por cada detalle que me demuestra cuánto te importo. Gracias por estar a mi lado , por hacerme sentir acompañado , no sé qué nos prepara el futuro, pero sí sé lo que quiero hoy y es caminar a tu lado respetándote y amarte cada día un poco mejor. 
+        </p>
+        <p>
+            Si alguna vez dudas de mi amor , recuerda esto: mi amor por ti es sincero  y unico , te amooo muchoteeee un montonononon mi viditaaa .
+        </p>
+
+        <div class="signature">
+            Con todo mi amor,<br>
+            <strong>Michael para ti </strong>
+        </div>
+    </div>
+</div>
+
+<script>
+function openLetter(){
+    document.querySelector('.container').classList.add('open');
+}
+</script>
+
+</body>
+</html>
